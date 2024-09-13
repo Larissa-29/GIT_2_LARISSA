@@ -82,3 +82,4 @@ summary(lm(EM ~ Sex_ch + Extraversion + fMRI_hipp_neg_neu, data=mydata))
 repdata <- read.table("repdata.txt", header=T, sep="\t")
 repdata <- subset(repdata, Filter==0)
 
+#Ich würde Darstellungen und Diagramme in ein Separates skript setzen 
