@@ -7,7 +7,9 @@
 
 \f0\fs24 \cf0 Test Dokument\
 \
-Keywords\
+
+\fs32 Keywords
+\fs24 \
 \
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx4977\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 
@@ -16,14 +18,45 @@ Abstract\
 \
 Introduction\
 \
-Methodes\
+Methodes:\
 \
-Results\
+
+\fs24 Data was analysed with R Studios
+\fs32 \
 \
-Discussion\
+Results: \
 \
-This task took me around 2h :)\
+
+\fs24 Call:\
+lm(formula = EM ~ Sex_ch + Extraversion + fMRI_hipp_neg_neu, \
+    data = mydata)\
+\
+Residuals:\
+     Min       1Q   Median       3Q      Max \
+-17.9051  -4.5791   0.1448   4.0679  19.3567 \
+\
+Coefficients:\
+                  Estimate Std. Error t value Pr(>|t|)    \
+(Intercept)        21.9371     1.1837  18.532  < 2e-16 ***\
+Sex_chmale         -2.8251     0.4409  -6.408 2.47e-10 ***\
+Extraversion       -0.4637     0.0588  -7.886 9.84e-15 ***\
+fMRI_hipp_neg_neu   3.8173     0.1100  34.716  < 2e-16 ***\
+---\
+Signif. codes:  0 \'91***\'92 0.001 \'91**\'92 0.01 \'91*\'92 0.05 \'91.\'92 0.1 \'91 \'92 1\
+\
+Residual standard error: 6.284 on 829 degrees of freedom\
+Multiple R-squared:  0.6135,	Adjusted R-squared:  0.6121 \
+F-statistic: 438.6 on 3 and 829 DF,  p-value: < 2.2e-16\
+\
+
+\fs32 \
+\
+Discussion:\
+\
+Task 2 took me around 2h :)\
+\
+Task 4 took around 3h \
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx4977\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 
 \fs24 \cf0 \kerning1\expnd0\expndtw0 \
-}this Task Took around 2h :)
+}
