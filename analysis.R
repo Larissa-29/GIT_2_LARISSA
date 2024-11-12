@@ -83,3 +83,114 @@ repdata <- read.table("repdata.txt", header=T, sep="\t")
 repdata <- subset(repdata, Filter==0)
 
 #Ich würde Darstellungen und Diagramme in ein Separates skript setzen 
+
+
+
+#Excercice 7
+
+# Reading in raw data and basic quality control
+library(readr)
+
+# Load raw data
+raw_data <- read_csv("path/to/your/raw_data.csv")
+
+# Basic quality control: remove rows with NA and filter based on a condition
+raw_data <- raw_data %>%
+  drop_na() %>%
+  filter(some_metric > threshold_value)  # Replace 'some_metric' and 'threshold_value' as needed
+
+print("Data loaded and basic quality control applied.")
+
+
+# 2. Reliability/Validation/Aggregation steps
+# Calculate correlations between independent variables
+correlation_matrix = raw_data.corr()
+# Assuming correlation_matrix is a data frame or matrix in R
+reliable_vars <- names(correlation_matrix)[apply(correlation_matrix, 2, max) > 0.5]
+
+# Aggregating variables if r > 0.5
+aggregated_data = raw_data[reliable_vars].mean(axis=1)
+raw_data['aggregated_var'] = aggregated_data
+
+print("Data reliability check and aggregation completed.")
+
+# 3. Main analysis
+# Example: Linear regression analysis
+model <- lm(dependent_var ~ independent_var1 + independent_var2, data = raw_data)
+summary(model)
+
+X = raw_data[['independent_var1', 'independent_var2']]  # Replace with your actual independent variables
+y = raw_data['dependent_var']  # Replace with your actual dependent variable
+
+model = LinearRegression()
+model.fit(X, y)
+
+print("Main analysis completed. Model coefficients:", model.coef_)
+
+# Install and load the boot package
+install.packages("boot")
+library(boot)
+
+# Define a function for resampling and fitting the model
+boot_fn <- function(data, indices) {
+  d <- data[indices, ]  # Resample data
+  fit <- lm(dependent_var ~ independent_var1 + independent_var2, data = d)
+  return(coef(fit))
+}
+
+# Perform bootstrapping with 1000 replications
+boot_result <- boot(data = raw_data, statistic = boot_fn, R = 1000)
+print(boot_result)
+
+bootstrap_samples = 1000
+coefficients <- c()  # Initializes an empty vector
+  
+coefficients_mean = np.mean(coefficients, axis=0)
+print("Sensitivity analysis completed. Mean coefficients from bootstrapping:", coefficients_mean)
+
+# 5. Replication
+# Replication Script for Linear Regression Example
+# Author: Your Name
+# Date: 2024-11-12
+# This script replicates the analysis from the paper XYZ, including steps for data loading, cleaning, model fitting, and results saving.
+
+# Load necessary libraries
+library(dplyr)
+library(ggplot2)
+library(tidyr)
+library(lmtest)
+
+# Set working directory
+setwd("path_to_your_directory")
+
+# Load data
+data <- read.csv("data_file.csv")
+
+# Data cleaning (e.g., handle missing data)
+data$column_name <- as.factor(data$column_name)
+data <- na.omit(data)
+
+# Fit a linear regression model
+model <- lm(dependent_variable ~ independent_variable1 + independent_variable2, data = data)
+
+# Model summary
+summary(model)
+
+# Diagnostic test
+bptest(model)
+
+# Save model coefficients to CSV
+write.csv(coef(model), "model_coefficients.csv")
+
+# Create a plot of residuals
+ggplot(data, aes(x = fitted(model), y = residuals(model))) +
+  geom_point() +
+  theme_minimal() +
+  labs(title = "Residuals vs Fitted", x = "Fitted values", y = "Residuals")
+
+# Save the plot
+ggsave("residuals_plot.png")
+
+# Save model for future use
+save(model, file = "model.RData")
+
